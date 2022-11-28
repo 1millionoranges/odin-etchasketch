@@ -41,7 +41,7 @@ function changeResolution(){
     makeBoard(resolution);
 }
 function changeBackground(e){
-    e.target.style.backgroundColor = "red";
+    e.target.style.backgroundColor = paintcolor;
 }
 function buttonFunction(e){
     const buttonID = e.target.getAttribute("id");
@@ -52,13 +52,28 @@ function buttonFunction(e){
         case("change-size"):
             changeResolution();
             break;
-
+        case("redpaint"):
+            paintcolor = "red";
+            updateCurrentColor();
+            break;
+        case("bluepaint"):
+            paintcolor = "blue";
+            updateCurrentColor();
+            break;
+        case("yellowpaint"):
+            paintcolor = "yellow";
+            updateCurrentColor();
+            break;
 
     }
 }
-
-
-makeBoard(4);
+function updateCurrentColor(){
+    const colorButton = document.querySelector("#current-color");
+    colorButton.style.backgroundColor = paintcolor;
+}
+paintcolor = "red"
+updateCurrentColor();
+makeBoard(30);
 
 
 const buttons = document.querySelectorAll("button");

@@ -40,3 +40,15 @@ button{
     font-size: 30px;
     font-weight: bold;
 }
+#redpaint{
+    background-color: red;
+    color: white;
+}
+#yellowpaint{
+    background-color: yellow;
+    color: black;
+}
+#bluepaint{
+    background-color: blue;
+    color: white;
+}
