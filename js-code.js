@@ -1,6 +1,7 @@
 function makeRow(){
     let row = document.createElement("div");
-    row.classList.add("evenflex");
+    row.classList.add("flex");
+    row.classList.add("flex1");
     for(let i = 0; i < 16; i++){
         let singleNode = document.createElement("div");
         singleNode.classList.add("smallest");

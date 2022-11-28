@@ -1,22 +1,32 @@
 .flex{
     display: flex;
-    background-color: blue;
 }
-.evenflex{
-    display: flex;
-    background-color: blue;
-    flex: 1;
-    width: 160px;
-    height: 160px;
+.set-dimensions{
+    width: 500px;
+    height: 500px;
 }
-.verticalflex{
+.vertical-flex{
     display: flex;
     flex-direction:column;
 }
-div{
-    margin:0px;
-    padding:0px;
-    width: 10px;
-    height: 10px;
-    background-color: blue;
+.justify-around{
+    justify-content: space-around;
+    align-items: center;
+
+}
+.align-center{
+    justify-content: space-around;
+}
+.container{
+    padding: 10px;
+    background-color: black;
+}
+.smallest{
+    flex: 1;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+}
+.flex1{
+    flex: 1;
 }
