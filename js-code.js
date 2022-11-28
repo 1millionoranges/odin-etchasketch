@@ -1,27 +1,68 @@
-function makeRow(){
+function makeRow(res){
     let row = document.createElement("div");
     row.classList.add("flex");
     row.classList.add("flex1");
-    for(let i = 0; i < 16; i++){
+    row.classList.add("pixelrow");
+    for(let i = 0; i < res; i++){
         let singleNode = document.createElement("div");
         singleNode.classList.add("smallest");
         row.appendChild(singleNode);
     }
     return row;
 }
-function makeBoard(){
+function removeRows(){
+    const rows = document.querySelectorAll(".pixelrow");
     const container = document.querySelector(".container");
-    console.log(container);
-    for(let i = 0; i < 16; i++){
-        container.appendChild(makeRow());
+    rows.forEach((row) => {
+        container.removeChild(row);
+    });
+}
+function makeBoard(res){
+    const container = document.querySelector(".container");
+    removeRows();
+    for(let i = 0; i < res; i++){
+        container.appendChild(makeRow(res));
     }
+    const smallSquares = document.querySelectorAll(".smallest");
+    smallSquares.forEach((e) => {
+        e.addEventListener('mouseover', changeBackground);
+    })
+}
+function clearBoard(){
+    const allSmallestNodes = document.querySelectorAll(".smallest");
+    allSmallestNodes.forEach((node) => {
+        node.style.backgroundColor = "white";
+    });
+    console.log("clearing board");
+}
+function changeResolution(){
+    console.log("changing resolution");
+    let resolution = Number.parseInt(prompt("What would you like the new resolution to be?"));
+    makeBoard(resolution);
 }
 function changeBackground(e){
     e.target.style.backgroundColor = "red";
 }
-makeBoard();
-smallSquares = document.querySelectorAll(".smallest");
-smallSquares.forEach((e) => {
-    console.log("adding event listener");
-    e.addEventListener('mouseover', changeBackground);
-})
+function buttonFunction(e){
+    const buttonID = e.target.getAttribute("id");
+    switch(buttonID){
+        case("clearbutton"):
+            clearBoard();
+            break;
+        case("change-size"):
+            changeResolution();
+            break;
+
+
+    }
+}
+
+
+makeBoard(4);
+
+
+const buttons = document.querySelectorAll("button");
+console.log(buttons);
+buttons.forEach((e) => {
+    e.addEventListener('click', buttonFunction);
+});
